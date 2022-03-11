@@ -1,5 +1,5 @@
 """
-@author: Luis Muñiz García
+third-party imports
 """
 
 # importing speech recognition package from google api
@@ -21,10 +21,7 @@ class Assistant:
         self.output = ""
         self.to_speak = ""
         self.input = ""
-        self.source = sr.Microphone()
-        self.audio = self.r_object.listen(source, phrase_time_limit = self.time_out)
         self.r_object = sr.Recognizer()
-        self.text = self.r_object.recognize_google(self.audio, language ='es-ES')
         self.intro = '''Hola, mi nombre es Cortana. Soy tu asistente para la búsqueda
                 de vulnerabilidades de ciberseguridad.'''
         self.creador = "He sido desarrollada por Luis Muñiz García."
@@ -53,11 +50,13 @@ class Assistant:
         with sr.Microphone() as source:
             print("Habla...")
             # recording the audio using speech recognition
+            audio = self.r_object.listen(source, phrase_time_limit = self.time_out)
         print("Para.")
 
         try:
-            print("Tú : ", self.text)
-            return self.text
+            text = self.r_object.recognize_google(audio, language ='es-ES')
+            print("Tú : ", text)
+            return text
         except Exception as exception:
             self.speaks("No te he entendido. Por favor, inténtalo otra vez.")
             print(exception)
