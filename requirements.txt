@@ -1,0 +1,5 @@
+# Requirements
+speech_recognition
+playsound
+gTTS
+
