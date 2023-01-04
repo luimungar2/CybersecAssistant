@@ -3,9 +3,8 @@
 @author: Luis Muñiz García
 """
 
-#from tabulate import tabulate
-#from tqdm import tqdm as tq
-import os 
+import os
+
 
 class Scanner:
     """
@@ -13,7 +12,7 @@ class Scanner:
     tracking a single service, or take the whole active services table.
     """
 
-    def __init__(self,ip,filename):
+    def __init__(self, ip, filename):
         """
         Definition of main common parameters
         args: ip address, output file name
@@ -31,13 +30,13 @@ class Scanner:
         except Exception as scan_err:
             print("Error while scanning: "+str(scan_err))
             return False
-    
+
     def analyze_results(self):
         """
         Reads the results.
         """
         try:
-            f = open(self.file,'r')
+            f = open(self.file, 'r')
             print(f.read())
             return True
         except Exception as analyze_err:
@@ -48,6 +47,6 @@ class Scanner:
 if __name__ == "__main__":
     IP = "10.129.16.98"
     NOMBRE_FICHERO = "resultado_escaneo.txt"
-    escaneo = Scanner(IP,NOMBRE_FICHERO)
+    escaneo = Scanner(IP, NOMBRE_FICHERO)
     escaneo.scan_services()
     escaneo.analyze_results()
