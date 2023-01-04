@@ -7,7 +7,7 @@
 #from tqdm import tqdm as tq
 import os 
 
-class PortScanner:
+class Scanner:
     """
     This class contains all methods for scanning a port,
     tracking a single service, or take the whole active services table.
@@ -48,6 +48,6 @@ class PortScanner:
 if __name__ == "__main__":
     IP = "10.129.16.98"
     NOMBRE_FICHERO = "resultado_escaneo.txt"
-    escaneo = PortScanner(IP,NOMBRE_FICHERO)
+    escaneo = Scanner(IP,NOMBRE_FICHERO)
     escaneo.scan_services()
     escaneo.analyze_results()
