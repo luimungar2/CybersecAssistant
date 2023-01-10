@@ -142,13 +142,30 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
+            <div class="sidebar-card d-none d-lg-flex">
+                <!--<img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>-->
+                <p>Escanear red con netdiscover</p>
+                <form action="/discover" method="post" target="_blank">
+                    <center><label for="IP">IP</label></center>
+                    <input type="text" id="IP" name="IP" placeholder="192.168.226.0">
+                    <center><label for="MASK">MASK</label></center>
+                    <input type="text" id="MASK" name="MASK" placeholder="/24">
+                    <center><label for="FILENAME">Nombre del fichero:</label></center>
+                    <input type="text" id="FILENAME" name="FILENAME" placeholder="ejemplo.txt">
+                    <hr>
+                    <center><input type="submit" value="ver resultados" /></center>
+                    </form>
+            </div>
+
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
                 <!--<img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>-->
                 <p>Escanear máquina con nmap</p>
-                <form action="/show_data" method="post" target="_blank">
+                <form action="/scan" method="post" target="_blank">
                     <center><label for="IP">IP</label></center>
                     <input type="text" id="IP" name="IP" placeholder="192.168.226.131">
                     <center><label for="FILENAME">Nombre del fichero:</label></center>
