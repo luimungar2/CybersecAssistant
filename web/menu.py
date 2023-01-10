@@ -1,4 +1,5 @@
 import sys
+import html
 from flask import Flask, render_template, request
 from pathlib import Path
 abspath = str(Path.cwd())
@@ -42,18 +43,19 @@ def show_discover():
     if request.method == "POST":
         # getting input with ip = IP and mask = MASK in HTML form
         ip = request.form.get("IP")
-        print(ip)
         mask = request.form.get("MASK")
-        print(mask)
         # getting input with filename = FILENAME in HTML form
         filename = request.form.get("FILENAME")
-        print(filename)
         discover = Discover(ip, mask, filename)
-        print("sonda creada")
         discover.discover()
         fichero = open(filename,'r')
         contenido  = fichero.read()
-        print(contenido)
+        contenido = contenido.replace("_","")
+        contenido = contenido.replace("-","")
+        contenido = contenido.split()
+        for first_items in range(0,10):
+            contenido.pop(0)
+        contenido = [contenido[i:i+6] for i in range(0, len(contenido), 6)]
         return render_template('discover.html', data=contenido)
     else:
         return render_template('404.html')

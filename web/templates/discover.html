@@ -18,11 +18,33 @@
     
         <!-- Custom styles for this template-->
         <link href="{{ url_for('static',    filename='css/sb-admin-2.min.css') }}" rel="stylesheet">
-    
+    <style>
+        th, td{
+            padding: 15px;
+        }
+    </style>
     </head>
   <body>
     <center><h1>Descubrimiento</h1></center>
-    <center><textarea readonly rows="400" cols="500">{{ data}}</textarea></center>
+    <hr>
+    <center><table style = "text-align: center; border: 1px solid black; border-collapse: collapse; border-color: black; ">
+        <tr>
+            <th>IP</th>
+            <th>At MAC Address</th>
+            <th>Count</th>
+            <th>Len</th>
+            <th>MAC Vendor / Hostname</th>
+        </tr>
+        {% for splits in range(0,data|length) %}
+        <tr>
+            {% for iter in range(0,6) %}
+                <td>{{data[splits][iter]}}</td>
+                {% endfor %}
+        </tr>
+        {%endfor%}
+
+    </table></center>
+    <!--<center><textarea readonly rows="400" cols="500">{{ data}}</textarea></center><!-->
  
 
  
