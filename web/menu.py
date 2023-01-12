@@ -31,10 +31,9 @@ def show_scan():
         scanner = Scanner(ip, filename)
         print("escaner creado")
         scanner.scan_services()
-        fichero = open(filename,'r')
-        contenido  = fichero.read()
-        print(contenido)
-        return render_template('nmap.html', data=contenido)
+        #fichero = open(filename,'r')
+        #contenido  = fichero.read()
+        return render_template('nmap.html')
     else:
         return render_template('404.html')
 

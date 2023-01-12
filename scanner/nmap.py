@@ -25,7 +25,8 @@ class Scanner:
         Uses the nmap tool.
         """
         try:
-            os.system("nmap -A -T4 -v -sV -sC "+self.host+" > "+self.file)
+            os.system("nmap -A -T4 -v -sV -sC -oX "+self.file+" "+self.host)
+            os.system("xsltproc "+self.file+" -o templates/nmap.html")
             return True
         except Exception as scan_err:
             print("Error while scanning: "+str(scan_err))
@@ -46,7 +47,7 @@ class Scanner:
 
 if __name__ == "__main__":
     IP = "10.129.16.98"
-    NOMBRE_FICHERO = "resultado_escaneo.txt"
+    NOMBRE_FICHERO = "resultado_escaneo.xml"
     escaneo = Scanner(IP, NOMBRE_FICHERO)
     escaneo.scan_services()
     escaneo.analyze_results()
