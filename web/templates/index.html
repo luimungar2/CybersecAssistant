@@ -33,7 +33,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                    <i class="fa-solid fa-user-shield"></i>
+                    <i src = "{{ url_for('static',    filename='/img/door-open-solid.svg') }}"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Pentesting Assistant</div>
             </a>
@@ -169,7 +169,7 @@
                     <center><label for="IP">IP</label></center>
                     <input type="text" id="IP" name="IP" placeholder="192.168.226.131">
                     <center><label for="FILENAME">Nombre del fichero:</label></center>
-                    <input type="text" id="FILENAME" name="FILENAME" placeholder="ejemplo.txt">
+                    <input type="text" id="FILENAME" name="FILENAME" placeholder="ejemplo.xml">
                     <hr>
                     <center><input type="submit" value="ver resultados" /></center>
                     </form>
